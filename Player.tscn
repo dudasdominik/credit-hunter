@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://lqqw24j1bx28"]
+
+[ext_resource type="Script" uid="uid://cklhfnlyf3j8l" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bkqpmt3505bah" path="res://assets/SinglePlayer.png" id="1_xhfnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
+size = Vector2(5.2, 5)
+
+[node name="Player" type="CharacterBody2D" unique_id=1244926067]
+script = ExtResource("1_kpjcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=510527462]
+position = Vector2(0, 1)
+texture = ExtResource("1_xhfnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=490114947]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_xhfnw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1915802063]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=2126101909]
+position = Vector2(27.000002, 46)
+scale = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1968577061]
+position = Vector2(-5.4000006, -9.099999)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_kpjcp")
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

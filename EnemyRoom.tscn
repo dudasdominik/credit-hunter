@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://2lt4orwuivkg"]
+
+[ext_resource type="Script" uid="uid://gt0ugnvne104" path="res://EnemyRoom.gd" id="1_4o4l3"]
+[ext_resource type="PackedScene" uid="uid://ddsgemmbricgw" path="res://Enemy_Soldier.tscn" id="2_84pwx"]
+
+[node name="EnemyRoom" type="Node2D" unique_id=233993801]
+script = ExtResource("1_4o4l3")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1467328463]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1999461747]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=823699500]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1407078567]
+
+[node name="Enemy_Soldier" parent="Enemies" unique_id=5560282 instance=ExtResource("2_84pwx")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

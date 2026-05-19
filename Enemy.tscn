@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dvkg07wpflkd1"]
+
+[ext_resource type="Texture2D" uid="uid://q3nnnlb30m4v" path="res://assets/Enemy_pngs/SoldierOne.png" id="1_tt7e2"]
+
+[node name="Enemy_Soldier" type="Node2D" unique_id=1151734754]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=379768855]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=822936211]
+texture = ExtResource("1_tt7e2")

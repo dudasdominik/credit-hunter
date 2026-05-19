@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://s28m16me338j"]
+
+[ext_resource type="Script" uid="uid://s5pxqtvp04to" path="res://TeacherNPC.gd" id="1_fyea4"]
+[ext_resource type="Texture2D" uid="uid://c6ckmqxcpnowd" path="res://assets/Teacher.png" id="1_t2yir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyea4"]
+
+[node name="TeacherNPC" type="Area2D" unique_id=1916272834]
+position = Vector2(-1, 0)
+script = ExtResource("1_fyea4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1970407113]
+position = Vector2(0, 4.624999)
+scale = Vector2(0.25, 0.244)
+texture = ExtResource("1_t2yir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=634524911]
+position = Vector2(0, 1.9999999)
+scale = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_fyea4")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=1086334781]
+visible = false
+offset_left = -46.0
+offset_top = -50.0
+offset_right = 63.0
+offset_bottom = -27.0
+text = "E- Beszélgetés"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

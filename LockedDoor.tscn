@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bnftxu7yhbev1"]
+
+[ext_resource type="Script" uid="uid://cu16y6h1wgk35" path="res://LockedDoor.gd" id="1_ffmcq"]
+[ext_resource type="Texture2D" uid="uid://dumh087ey4y52" path="res://assets/RobotikaDoor.png" id="2_r6r1e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwelj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djo2c"]
+size = Vector2(24, 24)
+
+[node name="LockedDoor" type="Node2D" unique_id=1350954649]
+script = ExtResource("1_ffmcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=401254517]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.14184394, 0.14184394)
+texture = ExtResource("2_r6r1e")
+
+[node name="DoorBody" type="StaticBody2D" parent="." unique_id=902488362]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorBody" unique_id=274417263]
+shape = SubResource("RectangleShape2D_mwelj")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=98078433]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=754492349]
+shape = SubResource("RectangleShape2D_djo2c")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=612033486]
+offset_left = -25.0
+offset_top = -29.0
+offset_right = 30.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Press E"
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

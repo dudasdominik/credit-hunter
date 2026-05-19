@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bbp27c6ucvyvs"]
+
+[ext_resource type="Script" uid="uid://c52lm6yv7js4t" path="res://ItemPickup.gd" id="1_im1t2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hpx0b"]
+
+[node name="ItemPickup" type="Area2D" unique_id=2068307141]
+script = ExtResource("1_im1t2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168419075]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=240001191]
+shape = SubResource("CircleShape2D_hpx0b")
+
+[node name="PickupLabel" type="Label" parent="." unique_id=402622456]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "E"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
